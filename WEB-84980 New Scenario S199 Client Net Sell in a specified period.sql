@@ -225,7 +225,7 @@ GO
 		FROM #clientWiseData tr
 		INNER JOIN dbo.RefClient cl ON tr.NetSell > 0 AND cl.RefClientId = tr.RefClientId 
 		LEFT JOIN dbo.LinkRefClientRefIncomeGroupLatest la ON tr.RefClientId = la.RefClientId
-		LEFT JOIN dbo.RefIncomeGroup incGroup ON ISNULL(la.RefIncomeGroupId ,0)= ISNULL(incGroup.RefIncomeGroupId,0)
+		LEFT JOIN dbo.RefIncomeGroup incGroup ON ISNULL(la.RefIncomeGroupId ,0) = ISNULL(incGroup.RefIncomeGroupId,0)
 
 		SELECT DISTINCT
 			scenarioRule.RefAmlScenarioRuleId,
