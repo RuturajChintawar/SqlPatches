@@ -1,3 +1,5 @@
+--File:StoredProcedures:dbo:CoreClientTradingMargin_InsertFromStagingNseTradingMargin
+--WEB-85790-START- RC
 GO
 	ALTER PROCEDURE dbo.CoreClientTradingMargin_InsertFromStagingNseTradingMargin
 	(
@@ -181,12 +183,18 @@ GO
 		DELETE FROM dbo.StagingNseTradingMargin WHERE [GUID] = @InternalGuid
 	END
 GO
+--WEB-85790 -END - RC
+
+--File:Tables:dbo:StagingNseTradingMargin:ALTER
+--WEB-85790-START- RC
 GO
 	ALTER TABLE dbo.StagingNseTradingMargin
 	DROP COLUMN RefInstrumentId
 GO
+--WEB-85790 -END - RC
+--File:Tables:dbo:CoreClientTradingMargin:ALTER
+--WEB-85790-START- RC
 GO
-	
 	ALTER TABLE dbo.CoreClientTradingMargin
 	DROP CONSTRAINT UQ_CoreClientTradingMargin
 
@@ -194,6 +202,9 @@ GO
 	ADD CONSTRAINT UQ_CoreClientTradingMargin
 	UNIQUE (RefClientId, RefInstrumentId, RefSegementId, MarginDate, FlagOfStock, Quantity, Amount)
 GO
+--WEB-85790 -END - RC
+--File:StoredProcedures:dbo:CoreClientTradingMargin_InsertBseMarginFromStaging
+--WEB-85790-START- RC
 GO
 	ALTER PROCEDURE dbo.CoreClientTradingMargin_InsertBseMarginFromStaging
 	(
@@ -308,4 +319,4 @@ GO
 		DELETE FROM dbo.StagingBseTradingMargin WHERE [GUID] = @InternalGuid
 	END
 GO
-SELECT * FROM RefAmlreport  where code ='S82'
+--WEB-85790 -END - RC
