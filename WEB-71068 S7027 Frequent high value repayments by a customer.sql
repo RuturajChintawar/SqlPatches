@@ -243,3 +243,6 @@ SET IsMandatory = 0
 FROM dbo.LinkRefAmlReportRefEntityColumn link
 WHERE link.RefAmlReportId = @AmlReportId AND link.RefEntityColumnId = @RefEntityColumnId
 --WEB-71068-RC END
+
+
+StagingUpdateCommentAndStatus
